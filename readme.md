@@ -28,6 +28,95 @@ SE April 2020 PST / Group C
 - Isabella Brooks
 
 ### Assessment Development Plan
+Steps
+7x6 grid
+
+
+
+    Display a red or black disc.
+        declare 2 variables
+            1. let redDisc, blackDisc
+
+    Stack red and black discs in a column using a flex box layout.
+        1. Create class for cols 
+            discCol { 
+                display: flex;
+                // rest of code here
+            }
+
+    Display a full board consisting of 7 columns.
+        1. Create container/div with 7 cols
+            div id="stuff"
+
+    Set a click handler function for each column that adds an additional disc.
+        const element 
+        element.clickHandler = functionName
+
+    function functionName() = {
+        // code in here
+    }
+
+
+
+    Take turns! Toggle the color of each successive disc added.
+    how to toggle between 2 classes?
+    toggle() <-- jquery stuff? alternative?
+
+    Keep track of what color disc is at each position in the board. You should be able to console.log() debugging output after each move showing the state of the board.
+    
+    let currentDisc
+
+    console.log(currentDisc) // test to let us know current disc state
+    console.log(nameOfMazeNestedArrays)
+
+    Once a column is full (has 6 discs), don't allow any more discs to be added.
+
+    if (currentColDiscCount === 6) {
+        // do something
+    }
+    else {
+        // don't allow more discs in the col
+    }
+
+
+    Check whether the last disc added completed a four-in-a-row within the column (vertically).
+    if (colDiscCount === 4 && fourInARowVertically) {
+        // do something
+    }
+    else {
+        // keep going
+    }
+
+    Check whether the last disc added completed four-in-a-row horizontally.
+    if (colDiscCount === 4 && fourInARowHorizontally) {
+        // do something
+    }
+    else {
+        // keep going
+    }
+
+
+    Check whether the last disc added completed four-in-a-row on either an upward- or downward-sloping diagonal.
+    if (colDiscCount === 4 && fourInARowOneDiagonalUpward) {
+        // do something
+    }
+    else {
+        // keep going
+    }
+
+    if (colDiscCount === 4 && fourInARowOneDiagonalDownward) {
+        // do something
+    }
+    else {
+        // keep going
+    }
+
+
+    ---------
+
+
+
+
     1.
         a.
         b.
