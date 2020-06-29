@@ -22,7 +22,7 @@ https://josephdubon.gitlab.io/assessment-connect-four-team-project
 ## Project Team Members
 SE April 2020 PST / Group C
 
-- Joe Dubon - Project Lead
+- Joseph Dubon - Project Lead
 - Shavonne Carson
 - Melissa Gutierrez
 - Isabella Brooks
