@@ -20,12 +20,14 @@ The project lead will submit the project. This will be a project you include in 
 https://josephdubon.gitlab.io/assessment-connect-four-team-project
 
 ## Project Team Members
-SE April 2020 PST 
-Group C
+SE April 2020 PST
 
-Joe Dubon - Project Lead
-Shavonne Carson
-Melissa Gutierrez
+- Group C
+
+- Joe Dubon - Project Lead
+- Shavonne Carson
+- Melissa Gutierrez
+- Isabella Brooks
 
 ### Assessment Development Plan
     1.
