@@ -17,7 +17,7 @@ As a member of a group, you will have to meet certain performance expectations. 
 The project lead will submit the project. This will be a project you include in your portfolio, so make it look nice, and use GitLab's Pages feature to host your finished game so that anyone can play it.
 
 ## GitLab Pages URL
-https://josephdubon.gitlab.io/PROJECT-NAME-HERE
+https://josephdubon.gitlab.io/assessment-connect-four-team-project
 
 ## Project Team Members
 SE April 2020 PST 
