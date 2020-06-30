@@ -33,6 +33,7 @@ Dev plan:
 Order of execution:
 
 - start game
+
 - run event listener
 - run click handler
 - get column number

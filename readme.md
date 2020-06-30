@@ -28,7 +28,6 @@ SE April 2020 PST / Group C
 - Isabella Brooks
 
 ### Assessment Development Plan
-
 Development plan with help from Randy's demo:
 
     1. Initialize the game
@@ -50,7 +49,6 @@ Development plan with help from Randy's demo:
         - Announce that the game is over
 
 #### How to Break Down a Project
-
 1. Read the requirements document in detail.
 	a. Take notes of important points.
 	b. Write down your questions.
@@ -87,12 +85,12 @@ SOFTWARE.\
 
 
 
+Tasks for 6/30/2020:
 
-
-
-Isabella - 
+Isabella - Start at line 71 in JS file
 
 // Send data to message area in html
+
 const displayMessage = function (message) {
 
     // TODO: Clear out the message div
@@ -103,7 +101,7 @@ const displayMessage = function (message) {
 
 ---
 
-Shavonne - 
+Shavonne - Start at line 84 in JS file
 
 // Check if column is full
 const isColFull = function (colNum) {
@@ -114,7 +112,7 @@ const isColFull = function (colNum) {
 
 -------
 
-Joe - 
+Joe - Start at line 91 in JS file
 
 // Add AKA drop disc to to column
 const dropDisc = function () {
