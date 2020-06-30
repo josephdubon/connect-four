@@ -139,17 +139,29 @@ table {
 
 /* Start Here */
 
+body {
+    padding: 15px;
+    margin: 5px;
+}
+
+header {
+    text-align: center;
+    padding: 15px 0;
+}
+
 #gameArea {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
     background-color: rgb(243, 243, 243);
-    width: 500px;
+    width: 100%;
     height: 600px;
+    border: 1px solid;
 }
 
 #messageArea {
     flex-grow: 1;
-    background-color: rgba(255, 192, 203, 0.445);
+    background-color: rgba(196, 196, 196, 0.445);
     height: 100px;
 }
 
@@ -157,18 +169,31 @@ table {
     display: flex;
     flex-flow: row nowrap;
     flex-grow: 1;
-    background-color: rgba(128, 43, 128, 0.473);
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
     height: 400px;
 }
 
 .col {
     flex-grow: 1;
     flex-basis: 0;
-    border: 1px solid black;
+    padding: 25px;
+    border: 1px solid;
 }
 
-.disc {}
+.disc {
+    align-self: flex-start;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
 
-.disc.red {}
+.disc.red {
+    background-color: red;
+    margin: 15px;
+}
 
-.disc.black {}
+.disc.black {
+    background-color: black;
+}
