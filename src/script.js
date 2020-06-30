@@ -3,9 +3,15 @@ console.log("Get script-y wit it. Na-Na Na Na N-Na Na.")
 
 /*  
 
+Co-authored by:
+    - Joseph Dubon < josephdubon@pm.me >
+    - Isabella Brooks < isabellabrooks333@gmail.com >
+    - Shavonne Carson < ongyoustupid @icloud.com >
+
 Starter code with help from the code structure in Randy 's demos.
 Development plan with help from Randy 's demo.
 
+Dev plan:
 1. Initialize the game
     - Players
     - Board display
@@ -23,6 +29,24 @@ Development plan with help from Randy 's demo.
     - Tie
     - Win
     - Announce that the game is over
+
+Order of execution:
+
+- start game
+- run event listener
+- run click handler
+- get column number
+- check if col is full
+- is full? do not let player drop disc here
+- if not? let player drop disc
+- check for win or tie
+- check game status / check for four in a row
+- tie? then display tie message
+- win? then display win message
+- if no win or tie then switch to next player
+
+-- repeat steps until end game condition is reached
+
 */
 
 // Game board model
@@ -48,7 +72,7 @@ const displayMessage = function (message) {
     // TODO: Clear out the message div
 
     // TODO: Add new message to div
-    
+
 }
 
 // Display current player
@@ -142,25 +166,3 @@ const initGame = function () {
 
 // START GAME!
 initGame()
-
-/* 
-
-order of execution:
-
-start game
-
-run event listener
-run click handler
-get column number
-check if col is full
-is full? do not let player drop disc here
-if not? let player drop disc
-check for win or tie
-check game status / check for four in a row
-tie? then display tie message
-win? then display win message
-if no win or tie then switch to next player
-
-repeat steps until end game condition is reached
-
-*/
