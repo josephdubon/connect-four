@@ -29,88 +29,6 @@ SE April 2020 PST / Group C
 
 ### Assessment Development Plan
 
-    Display a red or black disc.
-        declare 2 variables
-            1. let redDisc, blackDisc
-
-    Stack red and black discs in a column using a flex box layout.
-        1. Create class for cols 
-            discCol { 
-                display: flex;
-                // rest of code here
-            }
-
-    Display a full board consisting of 7 columns.
-        1. Create container/div with 7 cols
-            div id="stuff"
-
-    Set a click handler function for each column that adds an additional disc.
-        const element 
-        element.clickHandler = functionName
-
-    function functionName() = {
-        // code in here
-    }
-
-
-
-    Take turns! Toggle the color of each successive disc added.
-    how to toggle between 2 classes?
-    toggle() <-- jquery stuff? alternative?
-
-    Keep track of what color disc is at each position in the board. You should be able to console.log() debugging output after each move showing the state of the board.
-    
-    let currentDisc
-
-    console.log(currentDisc) // test to let us know current disc state
-    console.log(nameOfMazeNestedArrays)
-
-    Once a column is full (has 6 discs), don't allow any more discs to be added.
-
-    if (currentColDiscCount === 6) {
-        // do something
-    }
-    else {
-        // don't allow more discs in the col
-    }
-
-
-    Check whether the last disc added completed a four-in-a-row within the column (vertically).
-    if (colDiscCount === 4 && fourInARowVertically) {
-        // do something
-    }
-    else {
-        // keep going
-    }
-
-    Check whether the last disc added completed four-in-a-row horizontally.
-    if (colDiscCount === 4 && fourInARowHorizontally) {
-        // do something
-    }
-    else {
-        // keep going
-    }
-
-
-    Check whether the last disc added completed four-in-a-row on either an upward- or downward-sloping diagonal.
-    if (colDiscCount === 4 && fourInARowOneDiagonalUpward) {
-        // do something
-    }
-    else {
-        // keep going
-    }
-
-    if (colDiscCount === 4 && fourInARowOneDiagonalDownward) {
-        // do something
-    }
-    else {
-        // keep going
-    }
-
-
-
-    ---------
-
 Development plan with help from Randy's demo:
 
     1. Initialize the game
@@ -164,4 +82,63 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+SOFTWARE.\
+
+
+
+
+
+
+
+Isabella - 
+
+// Send data to message area in html
+const displayMessage = function (message) {
+
+    // TODO: Clear out the message div
+
+    // TODO: Add new message to div
+
+}
+
+---
+
+Shavonne - 
+
+// Check if column is full
+const isColFull = function (colNum) {
+    // TODO: Look at the boardModel to determine if col is full
+    // for loop here?
+    return false // or true
+}
+
+-------
+
+Joe - 
+
+// Add AKA drop disc to to column
+const dropDisc = function () {
+    // TODO: Add a disc to the DOM for the current player
+    // <div class="disc red"></div>
+    // TODO: Add a disc to the boardmodel
+    numberOfDiscsDropped++
+}
+
+-------
+
+// Check for game status
+const isGameOver = function (model) {
+    // TODO: Check for a win
+    // TODO: Check for a tie (numberOfDiscsDropped === 42)
+    return false // false, "tie", or "win"
+}
+
+------
+
+// Switch to next player after turn
+const switchToNextPlayer = function () {
+    // TODO: Toggle currentPlayer variable 1 <--> 2
+}
+
+-------
+

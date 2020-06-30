@@ -46,7 +46,9 @@ numberOfDiscsDropped = 0
 // Send data to message area in html
 const displayMessage = function (message) {
     // TODO: Clear out the message div
+
     // TODO: Add new message to div
+    
 }
 
 // Display current player
@@ -143,10 +145,11 @@ initGame()
 
 /* 
 
-Order of execution:
+order of execution:
 
 start game
-setup event listeners
+
+run event listener
 run click handler
 get column number
 check if col is full
@@ -157,6 +160,7 @@ check game status / check for four in a row
 tie? then display tie message
 win? then display win message
 if no win or tie then switch to next player
-repeat steps
+
+repeat steps until end game condition is reached
 
 */
