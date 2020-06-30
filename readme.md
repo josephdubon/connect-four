@@ -192,4 +192,18 @@ with flex box created the game area
 
 isabella
 
-created message function to display win, tie, etc to user through the message area in HTML.
+created message function to display win, tie, etc to user through the message area in HTML
+-next step is to create win, tie, etc messages
+
+-------
+
+Shavonne 
+
+will show us what she worked on next meeting
+
+--------
+
+Mel
+
+was only at initial meeting to setup development plan
+not at meeting 6/30/2020
