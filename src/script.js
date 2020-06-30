@@ -74,8 +74,8 @@ const messageArea = document.querySelector("#messageArea");
 const displayMessage = function (message) {
     messageArea.innerHTML = "It works!"
 }
-// Test function -turn off gameInit to run this
-displayMessage()
+// Test function -remove comment and turn off gameInit to run this test
+// displayMessage()
 
 // Display current player
 const displayCurrentPlayer = function (playerNum) {
@@ -167,4 +167,4 @@ const initGame = function () {
 }
 
 // START GAME!
-// initGame()
+initGame()
