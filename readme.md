@@ -28,10 +28,6 @@ SE April 2020 PST / Group C
 - Isabella Brooks
 
 ### Assessment Development Plan
-Steps
-7x6 grid
-
-
 
     Display a red or black disc.
         declare 2 variables
@@ -112,27 +108,28 @@ Steps
     }
 
 
+
     ---------
 
+Development plan with help from Randy's demo:
 
+    1. Initialize the game
+        - Players
+        - Board display
+        - Board model
+        - Current player tracker
+        - Click handlers for each column
 
+    2. Take player input
+        - Know which player is dropping a disc
+        - Which column are we dropping into?
+        - is that column already full/populated with any discs?
+        - Drop the disc into the top of the column
 
-    1.
-        a.
-        b.
-        c.
-    2.
-        a.
-        b.
-        c.
-    3.
-        a.
-        b.
-        c.
-    4.
-        a.
-        b.
-        c.
+    3. Check for game end conditions
+        - Tie
+        - Win
+        - Announce that the game is over
 
 #### How to Break Down a Project
 
