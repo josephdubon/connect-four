@@ -69,12 +69,13 @@ currentPlayer = 1 // 1 or 2
 numberOfDiscsDropped = 0
 
 // Send data to message area in html
+const messageArea = document.querySelector("#messageArea");
+// Needed to change msg - Isabella wazz here ;) :3 
 const displayMessage = function (message) {
-    // TODO: Clear out the message div
-
-    // TODO: Add new message to div
-
+    messageArea.innerHTML = "It works!"
 }
+// Test function -turn off gameInit to run this
+displayMessage()
 
 // Display current player
 const displayCurrentPlayer = function (playerNum) {
@@ -166,4 +167,4 @@ const initGame = function () {
 }
 
 // START GAME!
-initGame()
+// initGame()

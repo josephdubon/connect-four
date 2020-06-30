@@ -112,7 +112,11 @@ const isColFull = function (colNum) {
 
 -------
 
-Joe - Start at line 91 in JS file
+Joe - 
+
+Setup starter code
+Flex box to show board and elements
+
 
 // Add AKA drop disc to to column
 const dropDisc = function () {
@@ -157,11 +161,35 @@ CSS
 }
 
 JavaScript
-const resultP = document.querySelector(".result > p"); //Needed to change msg - Isabella wazz here ;) :3 
+const messageArea = document.querySelector(".messageArea > p"); //Needed to change msg - Isabella wazz here ;) :3 
 
 const displayMessage = function (message) {
     // TODO: Clear out the message div
-    resultP.innerHTML = "It works!"
+    messageArea.innerHTML = "It works!"
     // TODO: Add new message to div
     
 } //we should really only use this to lay out how the code will work because we want to write the message out in the win/lose functions.
+
+
+
+_____
+
+joe
+
+added starter code from randys demos
+added comments, order or execution
+created css styles
+with flex box created the game area
+- message area
+- board area
+- col area
+- discs
+    -red
+    -black
+
+
+------
+
+isabella
+
+created message function to display win, tie, etc to user through the message area in HTML.
