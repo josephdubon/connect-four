@@ -92,8 +92,6 @@ video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
 
@@ -138,3 +136,39 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+/* Start Here */
+
+#gameArea {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: rgb(243, 243, 243);
+    width: 500px;
+    height: 600px;
+}
+
+#messageArea {
+    flex-grow: 1;
+    background-color: rgba(255, 192, 203, 0.445);
+    height: 100px;
+}
+
+#board {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+    background-color: rgba(128, 43, 128, 0.473);
+    height: 400px;
+}
+
+.col {
+    flex-grow: 1;
+    flex-basis: 0;
+    border: 1px solid black;
+}
+
+.disc {}
+
+.disc.red {}
+
+.disc.black {}

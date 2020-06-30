@@ -139,4 +139,29 @@ const switchToNextPlayer = function () {
 }
 
 -------
+HTML
+<div class="result">
+             <p>Test Message</p> 
+             <!--This should be an empty string once we get everything working that way it won't display anything until you win/lose. -->
+        </div>
 
+CSS
+.result{
+    font-size: 40px;
+    color: black;
+}
+
+.result p{
+    text-align: center;
+    font-weight: bold;
+}
+
+JavaScript
+const resultP = document.querySelector(".result > p"); //Needed to change msg - Isabella wazz here ;) :3 
+
+const displayMessage = function (message) {
+    // TODO: Clear out the message div
+    resultP.innerHTML = "It works!"
+    // TODO: Add new message to div
+    
+} //we should really only use this to lay out how the code will work because we want to write the message out in the win/lose functions.
