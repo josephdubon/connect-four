@@ -53,12 +53,12 @@ Order of execution:
 
 // Game board model
 const boardModel = [
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
 ]
 
 // Declare variables and give some data
@@ -97,7 +97,7 @@ const isColFull = function (colNum) {
         let col = boardModel[i]
         // Test
         // console.log(col)
-        if (col === null) {
+        if (col === 0) {
             // Return false
             return false
             // Test
@@ -127,7 +127,7 @@ const winnerVertical = function (model) {
             if (model[rowNum][colNum] === model[rowNum + 1][colNum] &&
                 model[rowNum][colNum] === model[rowNum + 2][colNum] &&
                 model[rowNum][colNum] === model[rowNum + 3][colNum] &&
-                model[rowNum][colNum] !== null) {
+                model[rowNum][colNum] !== 0) {
                 return true
             }
         }
@@ -172,30 +172,30 @@ const isGameOver = function (model) {
 
 const testGameOver = function () {
     console.log("The board is currently empty: " + (isGameOver([
-        [null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
     ]) === false))
 
     console.log("Player 1 win on Column 1 : " + (isGameOver([
-        [null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null],
-        [1, null, null, null, null, null, null],
-        [1, null, null, null, null, null, null],
-        [1, null, null, null, null, null, null],
-        [1, null, null, null, null, null, null],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0, 0, 0],
     ]) === "win"))
 
     console.log("Player 2 win on Column 7 : " + (isGameOver([
-        [null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, 2],
-        [null, null, null, null, null, null, 2],
-        [null, null, null, null, null, null, 2],
-        [null, null, null, null, null, null, 2],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 2],
+        [0, 0, 0, 0, 0, 0, 2],
+        [0, 0, 0, 0, 0, 0, 2],
+        [0, 0, 0, 0, 0, 0, 2],
     ]) === "win"))
 }
 // Test
