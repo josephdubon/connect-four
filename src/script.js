@@ -173,8 +173,7 @@ const isGameOver = function (model) {
 }
 
 const testGameOver = function () {
-
-    console.log("Empty board: " + (isGameOver([
+    console.log("The board is currently empty: " + (isGameOver([
         [null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null],
