@@ -26,6 +26,7 @@ SE April 2020 PST / Group C
 - Shavonne Carson
 - Melissa Gutierrez
 - Isabella Brooks
+- Mellisa Gutierrez
 
 ### Assessment Development Plan
 Development plan with help from Randy's demo:
