@@ -7,6 +7,7 @@ Co-authored by:
     - Joseph Dubon < josephdubon@pm.me >
     - Isabella Brooks < isabellabrooks333@gmail.com >
     - Shavonne Carson < ongyoustupid @icloud.com >
+    -
 
 Starter code with help from the code structure in Randy 's demos.
 Development plan with help from Randy 's demo.
@@ -84,14 +85,30 @@ const displayCurrentPlayer = function (playerNum) {
 
 // Check if column is full
 const isColFull = function (colNum) {
-    // TODO: Look at the boardModel to determine if col is full
-    // for loop here?
-    return false // or true
+    for (let i = 0; i < boardModel.length; i++) {
+        let col = boardModel[i][i]
+        // Test
+        console.log(col)
+        if (col === null) {
+            // Return false
+            return false
+            // Test
+            // console.log(false)
+        } else {
+            // Return true
+            return true
+            // Test
+            // console.log(true)
+        }
+    }
 }
 
 // Add AKA drop disc to to column
-const dropDisc = function () {
+const dropDisc = function (colNum) {
     // TODO: Add a disc to the DOM for the current player
+if (colNum.childElementCount < 6) {
+console.log(count)
+}
     // <div class="disc red"></div>
     // TODO: Add a disc to the boardmodel
     numberOfDiscsDropped++
@@ -147,6 +164,8 @@ const colClickHandler = function (eventObj) {
             switchToNextPlayer()
         }
     }
+    // Test
+    // console.log(colNum)
 }
 
 // Reference HTML real things and set them up as click handlers

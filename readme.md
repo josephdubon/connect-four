@@ -204,6 +204,3 @@ will show us what she worked on next meeting
 --------
 
 Mel
-
-was only at initial meeting to setup development plan
-not at meeting 6/30/2020
