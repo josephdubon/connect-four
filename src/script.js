@@ -1,5 +1,5 @@
 // Test connection to index.html
-console.log("Get script-y wit it. Na-Na Na Na N-Na Na.")
+// console.log("Get script-y wit it. Na-Na Na Na N-Na Na.")
 
 /*  
 
@@ -86,9 +86,9 @@ const displayCurrentPlayer = function (playerNum) {
 // Check if column is full
 const isColFull = function (colNum) {
     for (let i = 0; i < boardModel.length; i++) {
-        let col = boardModel[i][i]
+        let col = boardModel[i]
         // Test
-        console.log(col)
+        // console.log(col)
         if (col === null) {
             // Return false
             return false
@@ -103,24 +103,6 @@ const isColFull = function (colNum) {
     }
 }
 
-// Add AKA drop disc to to column
-const dropDisc = function (colNum) {
-    // TODO: Add a disc to the DOM for the current player
-if (colNum.childElementCount < 6) {
-console.log(count)
-}
-    // <div class="disc red"></div>
-    // TODO: Add a disc to the boardmodel
-    numberOfDiscsDropped++
-}
-
-// Check for game status
-const isGameOver = function (model) {
-    // TODO: Check for a win
-    // TODO: Check for a tie (numberOfDiscsDropped === 42)
-    return false // false, "tie", or "win"
-}
-
 // Display tie message
 const displayTieMessage = function () {
     displayMessage("It is a tie game, friends!")
@@ -131,6 +113,97 @@ const displayWinMessage = function () {
     displayMessage("There is a win and that win belongs to _____")
 }
 
+// Add AKA drop disc to to column
+const dropDisc = function (colNum, colNode, playerNum) {
+    // TODO: Add a disc to the DOM colNode for the current player
+
+    // <div class="disc red"></div>
+    // TODO: Add a disc to the boardmodel
+    numberOfDiscsDropped++
+}
+
+// Check for Vertical 4 in a Row
+const winnerVertical = function (model) {
+    for (let rowNum = 0; rowNum < 3; rowNum++) {
+        for (let colNum = 0; colNum < model[rowNum].length; colNum++) {
+            if (model[rowNum][colNum] === model[rowNum + 1][colNum] &&
+                model[rowNum][colNum] === model[rowNum + 2][colNum] &&
+                model[rowNum][colNum] === model[rowNum + 3][colNum] &&
+                model[rowNum][colNum] != null) {
+                return true
+            }
+        }
+    }
+    return false
+}
+
+// Check for Horizontal 4 in a Row
+const winnerHorizontal = function (model) {
+    return false
+}
+
+// Check for Diagnol Up 4 in a Row
+const winnerDiagnolUp = function (model) {
+    return false
+}
+
+// Check for Diagnol Down 4 in a Row
+const winnerDiagnolDown = function (model) {
+    return false
+}
+
+// Check for Tie
+const isATie = function (model) {
+    return false
+}
+
+// Check for game status
+const isGameOver = function (model) {
+    if (isATie(model)) {
+        return "tie"
+    }
+    // TODO: Check for a win
+    if (winnerVertical(model) ||
+        winnerHorizontal(model) ||
+        winnerDiagnolUp(model) ||
+        winnerDiagnolDown(model)) {
+        return "win"
+    }
+    return false // false, "tie", or "win"
+}
+
+const testGameOver = function () {
+
+    console.log("Empty board: " + (isGameOver([
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+    ]) === false))
+
+    console.log("Player 1 win on Column 1 : " + (isGameOver([
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+        [1, null, null, null, null, null, null],
+        [1, null, null, null, null, null, null],
+        [1, null, null, null, null, null, null],
+        [1, null, null, null, null, null, null],
+    ]) === "win"))
+
+    console.log("Player 2 win on Column 7 : " + (isGameOver([
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, 2],
+        [null, null, null, null, null, null, 2],
+        [null, null, null, null, null, null, 2],
+        [null, null, null, null, null, null, 2],
+    ]) === "win"))
+}
+// Test
+// testGameOver()
+
 // Switch to next player after turn
 const switchToNextPlayer = function () {
     // TODO: Toggle currentPlayer variable 1 <--> 2
@@ -140,15 +213,16 @@ const switchToNextPlayer = function () {
 const colClickHandler = function (eventObj) {
     // Get selected col
     const selectedCol = eventObj.currentTarget
-    // Remove col# from div id
+    // Remove col# from div id and output col#
     const colNum = Number(selectedCol.id.slice(-1))
+    // console.log("Click on Column" + colNum)
     // Check if selected col is full
     if (isColFull(colNum)) {
         // Display a message saying they can't drop there
+        displayMessage("Can't drop a disc in a full column.")
     } else {
         // Allow player to drop disc in column
-        dropDisc(colNum)
-
+        dropDisc(colNum, selectedCol, currentPlayer)
         // Check game status after disc drop
         const gameStatus = isGameOver(boardModel)
         // If a tie, display tie message

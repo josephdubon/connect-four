@@ -129,6 +129,8 @@ const dropDisc = function () {
 
 -------
 
+Joe - 
+
 // Check for game status
 const isGameOver = function (model) {
     // TODO: Check for a win
@@ -138,12 +140,16 @@ const isGameOver = function (model) {
 
 ------
 
+Mellisa
+
 // Switch to next player after turn
 const switchToNextPlayer = function () {
     // TODO: Toggle currentPlayer variable 1 <--> 2
 }
 
 -------
+
+
 HTML
 <div class="result">
              <p>Test Message</p> 
