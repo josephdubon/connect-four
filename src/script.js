@@ -7,7 +7,7 @@ Co-authored by:
     - Joseph Dubon < josephdubon@pm.me >
     - Isabella Brooks < isabellabrooks333@gmail.com >
     - Shavonne Carson < ongyoustupid @icloud.com >
-    -
+    - Mellisa Gutierrez < >
 
 Starter code with help from the code structure in Randy 's demos.
 Development plan with help from Randy 's demo.
@@ -64,9 +64,7 @@ const boardModel = [
 // Declare variables and give some data
 let currentPlayer, numberOfDiscsDropped
 
-// Track current player
 currentPlayer = 1 // 1 or 2
-// Track number of discs dropped
 numberOfDiscsDropped = 0
 
 // Send data to message area in html
@@ -81,6 +79,16 @@ const displayMessage = function (message) {
 // Display current player
 const displayCurrentPlayer = function (playerNum) {
     displayMessage("Current player: " + playerNum)
+}
+
+// Display tie message
+const displayTieMessage = function () {
+    displayMessage("It is a tie game, friends!")
+}
+
+// Display win message
+const displayWinMessage = function () {
+    displayMessage("There is a win and that win belongs to _____")
 }
 
 // Check if column is full
@@ -103,16 +111,6 @@ const isColFull = function (colNum) {
     }
 }
 
-// Display tie message
-const displayTieMessage = function () {
-    displayMessage("It is a tie game, friends!")
-}
-
-// Display win message
-const displayWinMessage = function () {
-    displayMessage("There is a win and that win belongs to _____")
-}
-
 // Add AKA drop disc to to column
 const dropDisc = function (colNum, colNode, playerNum) {
     // TODO: Add a disc to the DOM colNode for the current player
@@ -129,7 +127,7 @@ const winnerVertical = function (model) {
             if (model[rowNum][colNum] === model[rowNum + 1][colNum] &&
                 model[rowNum][colNum] === model[rowNum + 2][colNum] &&
                 model[rowNum][colNum] === model[rowNum + 3][colNum] &&
-                model[rowNum][colNum] != null) {
+                model[rowNum][colNum] !== null) {
                 return true
             }
         }
