@@ -70,7 +70,7 @@ numberOfDiscsDropped = 0
 const messageArea = document.querySelector("#messageArea");
 // Needed to change msg - Isabella wazz here ;) :3 
 // Declare const message for use outside of function, test will console.log
-const message = "test message"
+const message = ""
 const displayMessage = function (message) {
     messageArea.innerHTML = message
 }
@@ -79,6 +79,7 @@ const displayMessage = function (message) {
 
 // Display current player
 const displayCurrentPlayer = function (playerNum) {
+    playerNum = currentPlayer
     displayMessage("Current player: " + playerNum)
 }
 
@@ -112,12 +113,12 @@ const dropDisc = function (colNum, colNode, playerNum) {
     // TODO: Add a disc to the DOM colNode for the current player
     if (playerNum === 1) {
         // <div class="disc red"></div>
-        console.log("red")
-        colNode.innerHTML += "<div class='disc red'></div>"
-        // console.log(colNode)
-    } else {
-        console.log("black")
+        // console.log("red")
         colNode.innerHTML += "<div class='disc black'></div>"
+        // console.log(colNode)
+    } else if (playerNum === 2) {
+        // console.log("black")
+        colNode.innerHTML += "<div class='disc red'></div>"
     }
 }
 
@@ -203,13 +204,9 @@ const isGameOver = function (model) {
 // testGameOver()
 
 // Switch to next player after turn
-const switchToNextPlayer = function (players, currentPlayer) {
+const switchToNextPlayer = function (currentPlayer) {
     // TODO: Toggle currentPlayer variable 1 <--> 2
-    if (currentPlayer === 1) {
-        return true
-    } else {
-        return false
-    }
+
 }
 
 // Main click handler function
