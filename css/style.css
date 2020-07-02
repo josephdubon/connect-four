@@ -196,10 +196,10 @@ header {
 
 .disc.red {
     background-color: red;
-    margin: 15px 0;
+    margin-bottom: 10px;
 }
 
 .disc.black {
     background-color: black;
-        margin: 15px 0;
+    margin-bottom: 15px;
 }
