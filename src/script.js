@@ -206,6 +206,8 @@ const isGameOver = function (model) {
 // Switch to next player after turn
 const switchToNextPlayer = function (currentPlayer) {
     // TODO: Toggle currentPlayer variable 1 <--> 2
+    // You can test the player 1 and player 2 effect but running this test:
+    // in browser console type >> currentPlayer = 1 or >> currentPlayer = 1
 
 }
 
