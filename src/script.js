@@ -94,35 +94,33 @@ const displayWinMessage = function () {
 }
 
 // Check if column is full
-const isColFull = function (colNum) {
-    for (let i = 0; i < boardModel.length; i++) {
-        let col = boardModel[i][i] // this will just bring the first of the first array we need to reference the col
-        // Test to check top value
-        console.log(colNum)
-        console.log(col)
-        if (col === null) {
-            // Test
-            console.log(false)
-            // Return false
-            return false
-        } else {
-            // Test
-            console.log(true)
-            // Return true
-            return true
-        }
+const isColFull = function (colNum, colNode) {
+    // Get number of discs on column
+    numberOfDiscsDropped = colNode.children.length
+    // console.log(numberOfDiscsDropped)
+    // If less than 6 discs in column, true
+    if (numberOfDiscsDropped === 6) {
+        // console.log("true")
+        return true
+    } else {
+        // console.log("false")
+        return false
     }
 }
 
 // Add AKA drop disc to to column
 const dropDisc = function (colNum, colNode, playerNum) {
     // TODO: Add a disc to the DOM colNode for the current player
-
-    // <div class="disc red"></div>
-    // TODO: Add a disc to the boardmodel
-    numberOfDiscsDropped++
+    if (playerNum === 1) {
+        // <div class="disc red"></div>
+        console.log("red")
+        colNode.innerHTML += "<div class='disc red'></div>"
+        // console.log(colNode)
+    } else {
+        console.log("black")
+        colNode.innerHTML += "<div class='disc black'></div>"
+    }
 }
-
 // Check for Vertical 4 in a Row
 const winnerVertical = function (model) {
     for (let rowNum = 0; rowNum < 3; rowNum++) {
@@ -217,7 +215,7 @@ const colClickHandler = function (eventObj) {
     const colNum = Number(selectedCol.id.slice(-1))
     // console.log("Click on Column" + colNum)
     // Check if selected col is full
-    if (isColFull(colNum)) {
+    if (isColFull(colNum, selectedCol)) {
         // Display a message saying they can't drop there
         displayMessage("Can't drop a disc in a full column.")
     } else {
