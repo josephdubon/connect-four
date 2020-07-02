@@ -70,7 +70,7 @@ numberOfDiscsDropped = 0
 const messageArea = document.querySelector("#messageArea");
 // Needed to change msg - Isabella wazz here ;) :3 
 // Declare const message for use outside of function, test will console.log
-const message = ""
+const message = " "
 const displayMessage = function (message) {
     messageArea.innerHTML = message
 }
@@ -116,11 +116,15 @@ const dropDisc = function (colNum, colNode, playerNum) {
         // console.log("red")
         colNode.innerHTML += "<div class='disc black'></div>"
         // console.log(colNode)
+        boardModel[colNum++][colNode++]
     } else if (playerNum === 2) {
         // console.log("black")
         colNode.innerHTML += "<div class='disc red'></div>"
     }
 }
+console.log(boardModel)
+
+
 
 // Check for Vertical 4 in a Row
 const winnerVertical = function (model) {
@@ -200,15 +204,25 @@ const isGameOver = function (model) {
 //         [null, null, null, null, null, null, 2],
 //     ]) === "win"))
 // }
-// Test
+// // Test
 // testGameOver()
 
 // Switch to next player after turn
+const otherPlayer = 2
 const switchToNextPlayer = function (currentPlayer) {
     // TODO: Toggle currentPlayer variable 1 <--> 2
     // You can test the player 1 and player 2 effect but running this test:
     // in browser console type >> currentPlayer = 1 or >> currentPlayer = 1
+    // TODO: Toggle currentPlayer variable 1 <--> 2
+    // Switch players
+    //     (currentPlayer === '1') ? '2' : '1'
 
+    //     currentPlayerNameEl.classList.remove(switchToNextPlayer.otherPlayer)
+    //     currentPlayerNameEl.classList.add(switchToNextPlayer.currentPlayer)
+    //     currentPlayerNameEl.textContent = currentPlayerName
+    //     otherPlayerNameEl.classList.remove(switchToNextPlayer.currentPlayer)
+    //     otherPlayerNameEl.classList.add(switchToNextPlayer.otherPlayer)
+    //     otherPlayerNameEl.textContent = otherPlayerName
 }
 
 // Main click handler function
