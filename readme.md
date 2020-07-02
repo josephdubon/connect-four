@@ -147,6 +147,22 @@ const switchToNextPlayer = function () {
     // TODO: Toggle currentPlayer variable 1 <--> 2
 }
 
+code from mellisa: 
+
+const otherPlayer=2
+// Switch to next player after turn
+const switchToNextPlayer = function (currentPlayer) {
+    // TODO: Toggle currentPlayer variable 1 <--> 2
+      // Switch players
+    if (currentPlayer === '1') ? '2' : '1'
+    currentPlayerNameEl.classList.remove(switchToNextPlayer.otherPlayer)
+      currentPlayerNameEl.classList.add(switchToNextPlayer.currentPlayer)
+      currentPlayerNameEl.textContent = currentPlayerName
+      otherPlayerNameEl.classList.remove(switchToNextPlayer.currentPlayer)
+      otherPlayerNameEl.classList.add(switchToNextPlayer.otherPlayer)
+      otherPlayerNameEl.textContent = otherPlayerName
+
+
 -------
 
 
