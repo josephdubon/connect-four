@@ -63,8 +63,7 @@ const boardModel = [
 
 // Declare variables and give some data
 let currentPlayer, numberOfDiscsDropped
-
-currentPlayer = 1 // 1 or 2
+currentPlayer = 1 // or 2
 numberOfDiscsDropped = 0
 
 // Send data to message area in html
@@ -121,6 +120,7 @@ const dropDisc = function (colNum, colNode, playerNum) {
         colNode.innerHTML += "<div class='disc black'></div>"
     }
 }
+
 // Check for Vertical 4 in a Row
 const winnerVertical = function (model) {
     for (let rowNum = 0; rowNum < 3; rowNum++) {
@@ -203,8 +203,13 @@ const isGameOver = function (model) {
 // testGameOver()
 
 // Switch to next player after turn
-const switchToNextPlayer = function () {
+const switchToNextPlayer = function (players, currentPlayer) {
     // TODO: Toggle currentPlayer variable 1 <--> 2
+    if (currentPlayer === 1) {
+        return true
+    } else {
+        return false
+    }
 }
 
 // Main click handler function
