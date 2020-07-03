@@ -171,6 +171,16 @@ const winnerHorizontal = function (model) {
 
 // Check for Vertical 4 in a Row
 const winnerVertical = function (model) {
+    for (let colNum = 0; colNum < 3; colNum++) {
+        for (let rowNum = 0; rowNum < model[colNum].length; rowNum++) {
+            if (model[colNum][rowNum] === model[colNum][rowNum + 1] &&
+                model[colNum][rowNum] === model[colNum][rowNum + 2] &&
+                model[colNum][rowNum] === model[colNum][rowNum + 3] &&
+                model[colNum][rowNum] !== null) {
+                return true
+            }
+        }
+    }
     return false
 }
 
