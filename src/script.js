@@ -70,9 +70,9 @@ numberOfDiscsDropped = 0
 const messageArea = document.querySelector("#messageArea");
 // Needed to change msg - Isabella wazz here ;) :3 
 // Declare const message for use outside of function, test will console.log
-const message = ""
+const message = " "
 const displayMessage = function (message) {
-    messageArea.innerHTML = message
+    messageArea.innerHTML = "<p>" + message + "</p>"
 }
 // Test function -remove comment and turn off gameInit to run this test
 // displayMessage()
@@ -194,8 +194,6 @@ const winnerDiagnolUp = function (model) {
                 model[colNum][rowNum] === model[colNum + 2][rowNum] &&
                 model[colNum][rowNum] === model[colNum][rowNum + 3] &&
                 model[colNum][rowNum] === model[colNum + 3][rowNum] &&
-
-
                 model[colNum][rowNum] !== null) {
                 return true
             }
@@ -266,13 +264,11 @@ const switchToNextPlayer = function (evt) {
         disc = document.createElement('div')
         // colNode.innerHTML += "<div class='disc black'></div>"
         currentPlayer = 2
-        console.log(numberOfDiscsDropped)
         return disc
     } else if (currentPlayer === 2) {
         disc = document.createElement('div')
         // colNode.innerHTML += "<div class='disc red'></div>"
         currentPlayer = 1
-        console.log(numberOfDiscsDropped)
         return disc
     }
 }
