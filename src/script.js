@@ -81,11 +81,12 @@ const displayMessage = function (message) {
 const playerArea = document.querySelector("#playerArea")
 const displayCurrentPlayer = function (playerNum) {
     playerNum = currentPlayer
-    displayMessage("Current player: " + playerNum)
+    playerArea.innerHTML = "<p>" + "Player " + playerNum + " just made a move." + "</p>"
 }
 
 // Display next players turn
 const displayNextPlayersTurn = function () {
+    displayCurrentPlayer()
     displayMessage("Next player's turn.")
 }
 
@@ -97,6 +98,7 @@ const displayTieMessage = function () {
 // Display win message
 const displayWinMessage = function (playerNum) {
     displayMessage("There is a win and that win belongs to player " + playerNum)
+    playerArea.innerHTML = "<p>" + "Congratulations player " + playerNum + "!!" + "</p>"
 }
 
 // Check if column is full
@@ -299,6 +301,7 @@ const colClickHandler = function (eventObj) {
         }
         // If a win, display win message 
         else if (gameStatus === "win") {
+            displayCurrentPlayer("hello")
             displayWinMessage(currentPlayer)
         }
         // If not a tie or a win then switch players turn
@@ -324,7 +327,7 @@ const setUpEventListeners = function () {
 // Game start function
 const initGame = function () {
     setUpEventListeners()
-    displayCurrentPlayer()
+    displayMessage("Player 1, please click on a column to start.")
 }
 
 // START GAME!
