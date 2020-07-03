@@ -78,6 +78,7 @@ const displayMessage = function (message) {
 // displayMessage()
 
 // Display current player
+const playerArea = document.querySelector("#playerArea")
 const displayCurrentPlayer = function (playerNum) {
     playerNum = currentPlayer
     displayMessage("Current player: " + playerNum)
@@ -153,7 +154,7 @@ const dropDisc = function (colNum, rowNum, colNode, currentPlayer) {
     }
 }
 
-// Check for Vertical 4 in a Row
+// Check for Horizontal 4 in a Row
 const winnerHorizontal = function (model) {
     for (let colNum = 0; colNum < 3; colNum++) {
         for (let rowNum = 0; rowNum < model[colNum].length; rowNum++) {
@@ -168,7 +169,7 @@ const winnerHorizontal = function (model) {
     return false
 }
 
-// Check for Horizontal 4 in a Row
+// Check for Vertical 4 in a Row
 const winnerVertical = function (model) {
     return false
 }
@@ -251,7 +252,7 @@ const switchToNextPlayer = function (evt) {
     }
 }
 
-// Main click handler function
+// Main event listener function
 const colClickHandler = function (eventObj) {
     // Get selected col
     const selectedCol = eventObj.currentTarget
@@ -267,7 +268,7 @@ const colClickHandler = function (eventObj) {
         displayMessage("Can't drop a disc in a full column. <br> <br> Please choose a different column.")
     } else {
         // Ask player to drop disc in a column
-        displayMessage("Player " + currentPlayer + " Please drop a disc in a column.")
+        displayMessage("Next Player. Please drop a disc in a column.")
         // Allow player to drop disc in column
         dropDisc(colNum, rowNum, selectedCol, currentPlayer)
         // Check game status after disc drop
