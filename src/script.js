@@ -173,8 +173,7 @@ const winnerHorizontal = function (model) {
 const winnerVertical = function (model) {
     for (let colNum = 0; colNum < 3; colNum++) {
         for (let rowNum = 0; rowNum < model[colNum].length; rowNum++) {
-            if (model[colNum][rowNum] === model[colNum][rowNum] &&
-                model[colNum][rowNum] === model[colNum][rowNum + 1] &&
+            if (model[colNum][rowNum] === model[colNum][rowNum + 1] &&
                 model[colNum][rowNum] === model[colNum][rowNum + 2] &&
                 model[colNum][rowNum] === model[colNum][rowNum + 3] &&
                 model[colNum][rowNum] !== null) {
@@ -187,6 +186,21 @@ const winnerVertical = function (model) {
 
 // Check for Diagnol Up 4 in a Row
 const winnerDiagnolUp = function (model) {
+    for (let colNum = 0; colNum < 3; colNum++) {
+        for (let rowNum = 0; rowNum < model[colNum].length; rowNum++) {
+            if (model[colNum][rowNum] === model[colNum][rowNum + 1] &&
+                model[colNum][rowNum] === model[colNum + 1][rowNum] &&
+                model[colNum][rowNum] === model[colNum][rowNum + 2] &&
+                model[colNum][rowNum] === model[colNum + 2][rowNum] &&
+                model[colNum][rowNum] === model[colNum][rowNum + 3] &&
+                model[colNum][rowNum] === model[colNum + 3][rowNum] &&
+
+
+                model[colNum][rowNum] !== null) {
+                return true
+            }
+        }
+    }
     return false
 }
 
@@ -278,8 +292,7 @@ const colClickHandler = function (eventObj) {
         // Display a message saying they can't drop there
         displayMessage("Can't drop a disc in a full column. <br> <br> Please choose a different column.")
     } else {
-        // Ask player to drop disc in a column
-        displayMessage("Next Player. Please drop a disc in a column.")
+        displayNextPlayersTurn(currentPlayer)
         // Allow player to drop disc in column
         dropDisc(colNum, rowNum, selectedCol, currentPlayer)
         // Check game status after disc drop
