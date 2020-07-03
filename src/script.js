@@ -114,10 +114,12 @@ const isColFull = function (colNum, colNode) {
 }
 
 // Add AKA drop disc to to column
-const dropDisc = function (colNum, rowNum, colNode, playerNum) {
+const redDisc = "<div class='disc red'></div>"
+const blackDisc = "<div class='disc black'></div>"
+const dropDisc = function (colNum, rowNum, colNode, currentPlayer) {
     // TODO: Add a disc to the DOM colNode for the current player
-    if (playerNum === 1) {
-        colNode.innerHTML += "<div class='disc black'></div>"
+    if (currentPlayer === 1) {
+        colNode.innerHTML += blackDisc
         let rowNum = 0
         // Loop over boardmodel
         for (let i = 0; i < 6; i++) {
@@ -125,15 +127,15 @@ const dropDisc = function (colNum, rowNum, colNode, playerNum) {
                 boardModel[colNum - 1][i] === null : boardModel[colNum][i] === null) {
                 // console.log("rowNum", i)
                 rowNum = i
-                break
             }
         }
         // Update the board model
         if (colNum !== 0 ? boardModel[colNum - 1][rowNum] = currentPlayer : boardModel[colNum][rowNum] = currentPlayer)
-            console.log(boardModel)
+            // console.log(boardModel)
+            currentPlayer = 2
         numberOfDiscsDropped++
-    } else if (playerNum === 2) {
-        colNode.innerHTML += "<div class='disc red'></div>"
+    } else if (currentPlayer === 2) {
+        colNode.innerHTML += redDisc
         let rowNum = 0
         // Loop over boardmodel
         for (let k = 0; k < 6; k++) {
@@ -141,24 +143,24 @@ const dropDisc = function (colNum, rowNum, colNode, playerNum) {
                 boardModel[colNum - 1][k] === null : boardModel[colNum][k] === null) {
                 // console.log("rowNum", i)
                 rowNum = k
-                break
+                currentPlayer === 2
             }
         }
         // Update the board model
         if (colNum !== 0 ? boardModel[colNum - 1][rowNum] = currentPlayer : boardModel[colNum][rowNum] = currentPlayer)
-            console.log(boardModel)
-        numberOfDiscsDropped++
+            // console.log(boardModel)
+            numberOfDiscsDropped++
     }
 }
 
 // Check for Vertical 4 in a Row
-const winnerVertical = function (model) {
-    for (let rowNum = 0; rowNum < 3; rowNum++) {
-        for (let colNum = 0; colNum < model[rowNum].length; colNum++) {
-            if (model[rowNum][colNum] === model[rowNum + 1][colNum] &&
-                model[rowNum][colNum] === model[rowNum + 2][colNum] &&
-                model[rowNum][colNum] === model[rowNum + 3][colNum] &&
-                model[rowNum][colNum] !== null) {
+const winnerHorizontal = function (model) {
+    for (let colNum = 0; colNum < 3; colNum++) {
+        for (let rowNum = 0; rowNum < model[colNum].length; rowNum++) {
+            if (model[colNum][rowNum] === model[colNum + 1][rowNum] &&
+                model[colNum][rowNum] === model[colNum + 2][rowNum] &&
+                model[colNum][rowNum] === model[colNum + 3][rowNum] &&
+                model[colNum][rowNum] !== null) {
                 return true
             }
         }
@@ -167,7 +169,7 @@ const winnerVertical = function (model) {
 }
 
 // Check for Horizontal 4 in a Row
-const winnerHorizontal = function (model) {
+const winnerVertical = function (model) {
     return false
 }
 
@@ -233,10 +235,20 @@ const isGameOver = function (model) {
 // testGameOver()
 
 // Switch to next player after turn
-const switchToNextPlayer = function (currentPlayer) {
-
-    currentPlayer === 1 ? currentPlayer = 2 : currentPlayer = 2
-
+const switchToNextPlayer = function (evt) {
+    if (currentPlayer === 1) {
+        disc = document.createElement('div')
+        // colNode.innerHTML += "<div class='disc black'></div>"
+        currentPlayer = 2
+        console.log(numberOfDiscsDropped)
+        return disc
+    } else if (currentPlayer === 2) {
+        disc = document.createElement('div')
+        // colNode.innerHTML += "<div class='disc red'></div>"
+        currentPlayer = 1
+        console.log(numberOfDiscsDropped)
+        return disc
+    }
 }
 
 // Main click handler function
@@ -252,8 +264,10 @@ const colClickHandler = function (eventObj) {
     // Check if selected col is full
     if (isColFull(colNum, selectedCol)) {
         // Display a message saying they can't drop there
-        // displayMessage("Can't drop a disc in a full column.")
+        displayMessage("Can't drop a disc in a full column. <br> <br> Please choose a different column.")
     } else {
+        // Ask player to drop disc in a column
+        displayMessage("Player " + currentPlayer + " Please drop a disc in a column.")
         // Allow player to drop disc in column
         dropDisc(colNum, rowNum, selectedCol, currentPlayer)
         // Check game status after disc drop
