@@ -53,12 +53,12 @@ Order of execution:
 
 // Game board model
 const boardModel = [
-    ["row 0", null, null, null, null, null, null],
-    ["row 1", null, null, null, null, null, null],
-    ["row 2", null, null, null, null, null, null],
-    ["row 3", null, null, null, null, null, null],
-    ["row 4", null, null, null, null, null, null],
-    ["row 5", null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
 ]
 
 // Declare variables and give some data
@@ -70,7 +70,7 @@ numberOfDiscsDropped = 0
 const messageArea = document.querySelector("#messageArea");
 // Needed to change msg - Isabella wazz here ;) :3 
 // Declare const message for use outside of function, test will console.log
-const message = " "
+const message = ""
 const displayMessage = function (message) {
     messageArea.innerHTML = message
 }
@@ -83,14 +83,19 @@ const displayCurrentPlayer = function (playerNum) {
     displayMessage("Current player: " + playerNum)
 }
 
+// Display next players turn
+const displayNextPlayersTurn = function () {
+    displayMessage("Next player's turn.")
+}
+
 // Display tie message
 const displayTieMessage = function () {
     displayMessage("It is a tie game, friends!")
 }
 
 // Display win message
-const displayWinMessage = function () {
-    displayMessage("There is a win and that win belongs to _____")
+const displayWinMessage = function (playerNum) {
+    displayMessage("There is a win and that win belongs to player " + playerNum)
 }
 
 // Check if column is full
@@ -112,34 +117,36 @@ const isColFull = function (colNum, colNode) {
 const dropDisc = function (colNum, rowNum, colNode, playerNum) {
     // TODO: Add a disc to the DOM colNode for the current player
     if (playerNum === 1) {
-        colNum.innerHTML += "<div class='disc black'></div>"
+        colNode.innerHTML += "<div class='disc black'></div>"
         let rowNum = 0
         // Loop over boardmodel
         for (let i = 0; i < 6; i++) {
-            if (boardModel[colNum - 1][i] === null) {
+            if (colNum !== 0 ?
+                boardModel[colNum - 1][i] === null : boardModel[colNum][i] === null) {
                 // console.log("rowNum", i)
                 rowNum = i
                 break
             }
         }
         // Update the board model
-        boardModel[colNum - 1][rowNum] = currentPlayer
-        console.log(boardModel)
+        if (colNum !== 0 ? boardModel[colNum - 1][rowNum] = currentPlayer : boardModel[colNum][rowNum] = currentPlayer)
+            console.log(boardModel)
         numberOfDiscsDropped++
     } else if (playerNum === 2) {
-        colNum.innerHTML += "<div class='disc red'></div>"
+        colNode.innerHTML += "<div class='disc red'></div>"
         let rowNum = 0
         // Loop over boardmodel
         for (let k = 0; k < 6; k++) {
-            if (boardModel[colNum - 1][k] === null) {
-                // console.log("rowNum", k)
+            if (colNum !== 0 ?
+                boardModel[colNum - 1][k] === null : boardModel[colNum][k] === null) {
+                // console.log("rowNum", i)
                 rowNum = k
                 break
             }
         }
         // Update the board model
-        boardModel[colNum - 1][rowNum] = currentPlayer
-        console.log(boardModel)
+        if (colNum !== 0 ? boardModel[colNum - 1][rowNum] = currentPlayer : boardModel[colNum][rowNum] = currentPlayer)
+            console.log(boardModel)
         numberOfDiscsDropped++
     }
 }
@@ -226,21 +233,10 @@ const isGameOver = function (model) {
 // testGameOver()
 
 // Switch to next player after turn
-const otherPlayer = 2
 const switchToNextPlayer = function (currentPlayer) {
-    // TODO: Toggle currentPlayer variable 1 <--> 2
-    // You can test the player 1 and player 2 effect but running this test:
-    // in browser console type >> currentPlayer = 1 or >> currentPlayer = 1
-    // TODO: Toggle currentPlayer variable 1 <--> 2
-    // Switch players
-    //     (currentPlayer === '1') ? '2' : '1'
 
-    //     currentPlayerNameEl.classList.remove(switchToNextPlayer.otherPlayer)
-    //     currentPlayerNameEl.classList.add(switchToNextPlayer.currentPlayer)
-    //     currentPlayerNameEl.textContent = currentPlayerName
-    //     otherPlayerNameEl.classList.remove(switchToNextPlayer.currentPlayer)
-    //     otherPlayerNameEl.classList.add(switchToNextPlayer.otherPlayer)
-    //     otherPlayerNameEl.textContent = otherPlayerName
+    currentPlayer === 1 ? currentPlayer = 2 : currentPlayer = 2
+
 }
 
 // Main click handler function
@@ -256,7 +252,7 @@ const colClickHandler = function (eventObj) {
     // Check if selected col is full
     if (isColFull(colNum, selectedCol)) {
         // Display a message saying they can't drop there
-        displayMessage("Can't drop a disc in a full column.")
+        // displayMessage("Can't drop a disc in a full column.")
     } else {
         // Allow player to drop disc in column
         dropDisc(colNum, rowNum, selectedCol, currentPlayer)
@@ -268,11 +264,11 @@ const colClickHandler = function (eventObj) {
         }
         // If a win, display win message 
         else if (gameStatus === "win") {
-            displayWinMessage()
+            displayWinMessage(currentPlayer)
         }
         // If not a tie or a win then switch players turn
         else {
-            switchToNextPlayer()
+            switchToNextPlayer(currentPlayer)
         }
     }
     // Test
